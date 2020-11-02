@@ -6,13 +6,25 @@ Vue.use(Vuex)
 axios.defaults.baseURL = '/api'
 
 export const store = new Vuex.Store({
-    state: {
-
+    state() {
+        return {
+            islogin: false,
+            username:''
+        }
     },
     getters: {
-
+        isLoginState: state => {
+            return state.isLogin
+        }
     },
     mutations: {
+        login(state) {
+            state.islogin = true
+            console.log('state: ', state.islogin)
+        },
+        set_username(state, data) {
+            state.username = data
+        }
 
     },
     actions: {
@@ -38,8 +50,14 @@ export const store = new Vuex.Store({
         },
         login:({commit, dispatch}, data) => {
             return new Promise((resolve, reject) => {
-                axios.post('/loginsubmit', data.data)
-                    .then(resp = resolve(resp))
+                axios.post('/loginsubmit', data)
+                    .then(resp => {
+                        console.log(resp)
+                        commit('login')
+                        commit('set_username', resp.data.name)
+                        axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.auth_token
+                        resolve(resp)
+                    })
                     .catch(err => reject(err))
             })
         },

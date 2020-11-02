@@ -3,7 +3,7 @@
             <b-row>
                 <b-col class="mb-4" lg="9" sm="12">
 
-                    <b-button variant="success" v-b-modal.modal-form>Tambah</b-button>
+                    <b-button variant="success" @click="$bvModal.show('modal-form')">Tambah</b-button>
 
                     <!-- <b-modal size="lg" id="modal-1" titleadd="title" @ok="$emit('save')">
                         <p>
@@ -54,7 +54,7 @@
                     </nav>
                 </b-col>
                 <b-col class="text-right">
-                    Total: {{ total_data }} Santri
+                    Total: {{ total_data }} Data
                 </b-col>
             </b-row>
         </b-card-text>
@@ -131,6 +131,13 @@
                 let url = this.api + '?cari=' + this.cari_data
                 console.log(this.cari_data)
                 this.fetchData(url)
+            },
+            getData(url, event) {
+                event.preventDefault()
+                console.log(url)
+                if (url !== null){
+                    this.fetchData(url)
+                }
             },
         }
 }

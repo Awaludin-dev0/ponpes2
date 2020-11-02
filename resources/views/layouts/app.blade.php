@@ -20,6 +20,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        .router-link-active {
+            color: #FF0000 !important;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div id="app">

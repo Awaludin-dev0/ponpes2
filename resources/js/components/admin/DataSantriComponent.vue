@@ -231,6 +231,11 @@ a.link-mute {
                         sortable: true,
                     },
                     {
+                        key:'jenis_kelamin',
+                        label:"Jenis Kelamin",
+                        sortable: true,
+                    },
+                    {
                         key: 'tempat_lahir',
                         label: 'Tempat Lahir',
                         sortable: true,
@@ -307,6 +312,7 @@ a.link-mute {
         },
         mounted() {
             console.log('Data Santri')
+            console.log('data santri login state', this.$store.state.islogin)
             this.$store.dispatch('get', '/kelasbanin')
                 .then(resp => {
                     console.log(resp.data)

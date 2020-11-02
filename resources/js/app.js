@@ -9,6 +9,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import VueRouter from 'vue-router'
+import Vuex from 'vuex'
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
@@ -17,8 +18,6 @@ Vue.use(PortalVue)
 import {routes} from './routes.js'
 import BootstrapVue from 'bootstrap-vue'
 import PortalVue from 'portal-vue'
-
-
 
 
 import {store} from './store/index.js'
@@ -50,6 +49,8 @@ const router = new VueRouter({
     mode: 'history',
     routes: routes
 })
+
+// Vue.use(Vuex)
 
 const app = new Vue({
     el: '#app',
