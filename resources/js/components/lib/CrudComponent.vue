@@ -40,7 +40,7 @@
                 </b-col>
             </b-row>
             <b-row>
-                <b-col>
+                <b-col :style="{ 'overflow' : 'scroll' }">
                     <nav aria-label="Page Navigation">
                         <ul class="pagination justify-content-start">
                             <li :class="[ link.url === null ? 'page-item disabled' : 'page-item']"

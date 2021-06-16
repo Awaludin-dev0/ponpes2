@@ -175,7 +175,7 @@
                 </b-col>
             </b-row>
             <b-row>
-                <b-col>
+                <b-col class="overflow-auto" sm="12">
                     <nav aria-label="Page Navigation">
                         <ul class="pagination justify-content-start">
                             <li :class="[ link.url === null ? 'page-item disabled' : 'page-item']"
